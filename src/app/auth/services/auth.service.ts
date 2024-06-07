@@ -14,7 +14,7 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
-  
+
   get currentUser():User|undefined {
     if (!this.user) return undefined;
     return structuredClone(this.user);
@@ -29,6 +29,7 @@ export class AuthService {
       );
   }
 
+  // devuelve si el usuario esta autenticado o no.
   checkAuthentication(): Observable<boolean>{
     // verifico existencia de token en el localStorage
     if (!localStorage.getItem('token')) return of(false);
